@@ -30,14 +30,13 @@ namespace gta_delivery_payment.Controllers
         {
             System.Diagnostics.Debug.WriteLine("request ", ccnumber);
 
-            string query = "SELECT * FROM GTA_CPMS_APP";
+            string query = "SELECT COUNT(1) FROM GTABINES";
             DataHandler handler = new DataHandler();
             OracleDataReader reader = handler.GetData(query);
             while (reader.Read())
             {
+                string resp = reader.GetString(0);
                 System.Diagnostics.Debug.WriteLine("1" + reader.GetString(0));
-                System.Diagnostics.Debug.WriteLine("2" + reader.GetString(1));
-                System.Diagnostics.Debug.WriteLine("3" + reader.GetString(3));
             }
             reader.Dispose();
 
