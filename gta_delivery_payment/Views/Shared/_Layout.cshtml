@@ -178,7 +178,7 @@
             // Se ejecuta si todo fue bien.
                 .done(function (result) {
                     console.log('done', result);
-                    if (result != null && result.count) {
+                    if (result != null && result.count != null) {
                         var count = result.count;
                         console.log('count', count);
                         document.getElementById('type').value = type;
@@ -198,6 +198,7 @@
                         x[0].submit();
                     }
                     else {
+                        console.log('false');
                         return false;
                     }
             })

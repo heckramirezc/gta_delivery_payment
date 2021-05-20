@@ -26,7 +26,7 @@ namespace gta_delivery_payment.Controllers
         }
 
         [HttpPost]
-        public Response GetData(string ccnumber)
+        public Response GetData(string ccnumber, string ammount, string envio)
         {
             Response response = new Response();
             int bim = int.Parse(ccnumber.Trim().Substring(0, 4));
