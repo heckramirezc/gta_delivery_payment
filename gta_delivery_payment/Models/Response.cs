@@ -3,11 +3,12 @@ namespace gta_delivery_payment.Models
 {
     public class Response
     {
-        public Response(int amount)
+        public Response() { }
+        public Response(int count)
         {
-            this.amount = amount;
+            this.count = count;
         }
 
-        public int amount { get; set; }
+        public int count { get; set; }
     }
 }

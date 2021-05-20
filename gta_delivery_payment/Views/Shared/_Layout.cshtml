@@ -178,14 +178,14 @@
             // Se ejecuta si todo fue bien.
                 .done(function (result) {
                     console.log('done', result);
-                    if (result != null && result.amount) {
-                        var monto = result.amount;
-                        console.log('monto', monto);
+                    if (result != null && result.count) {
+                        var count = result.count;
+                        console.log('count', count);
                         document.getElementById('type').value = type;
                         document.getElementById('key_id').value = key_id;
                         document.getElementById('hash').value = hash;
                         document.getElementById('time').value = time;
-                        document.getElementById('amount').value = monto;
+                        document.getElementById('amount').value = amount;
                         document.getElementById('orderid').value = orderid;
                         document.getElementById('number').value = ccnumber;
                         document.getElementById('name').value = name;

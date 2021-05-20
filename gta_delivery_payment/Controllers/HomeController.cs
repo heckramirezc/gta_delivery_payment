@@ -28,19 +28,22 @@ namespace gta_delivery_payment.Controllers
         [HttpPost]
         public Response GetData(string ccnumber)
         {
-            System.Diagnostics.Debug.WriteLine("request ", ccnumber);
+            Response response = new Response();
+            int bim = int.Parse(ccnumber.Trim().Substring(0, 4));
+            System.Diagnostics.Debug.WriteLine("bim " + bim);
 
-            string query = "SELECT COUNT(1) FROM GTABINES";
+            string query = "SELECT COUNT(BIN) FROM GTABINES WHERE BIN = " + bim + " AND ESTADO = 'A'";
+            System.Diagnostics.Debug.WriteLine("query " + query);
             DataHandler handler = new DataHandler();
             OracleDataReader reader = handler.GetData(query);
             while (reader.Read())
             {
-                string resp = reader.GetString(0);
-                System.Diagnostics.Debug.WriteLine("1" + reader.GetString(0));
+                response = new Response(reader.GetInt32(0));
             }
             reader.Dispose();
 
-            return new Response(12345);
+            System.Diagnostics.Debug.WriteLine("response.count " + response.count);
+            return response;
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
